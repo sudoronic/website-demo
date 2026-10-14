@@ -38,10 +38,10 @@ jobs:
       - name: 🔍 Validate HTML structure
         run: |
           echo "Validating HTML..."
-          grep -q "" src/index.html || (echo "❌ Missing DOCTYPE" && exit 1)
-          grep -q " tag" && exit 1)
-          grep -q "" src/index.html    || (echo "❌ Missing " && exit 1)
-          grep -q "" src/index.html    || (echo "❌ Missing " && exit 1)
+          grep -q "<!DOCTYPE html>" src/index.html || (echo "❌ Missing DOCTYPE" && exit 1)
+          grep -q "<html" src/index.html || (echo "❌ Missing <html> tag" && exit 1)
+          grep -q "<head>" src/index.html || (echo "❌ Missing <head>" && exit 1)
+          grep -q "<body>" src/index.html || (echo "❌ Missing <body>" && exit 1)
           echo "✅ HTML structure is valid!"
 
   # ══════════════════════════════════════════════
